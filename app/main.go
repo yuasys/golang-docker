@@ -8,10 +8,9 @@ import(
 )
 
 func main(){
-	http.HndleFunc("/", func(w http.ResponseWriter, *http.
+	http.HandleFunc("/", func(w http.ResponseWriter, r *http.
 	Request){
-		fmt.Fprintf(w, "Hi Hello, %q", html:EscapeString(r.Path)
-		)
+		fmt.Fprintf(w, "Hi Hello, %q", html.EscapeString(r.URL.Path))
 	})
 
 	log.Fatal(http.ListenAndServe(":8080",nil))
